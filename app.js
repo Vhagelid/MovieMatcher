@@ -13,6 +13,7 @@ const adminRouter = require("./src/routers/adminRouter");
 
 app.use(morgan("tiny"));
 app.use(express.static(path.join(__dirname, "/public/")));
+app.use(express.static(path.join(__dirname, "/Static/")));
 
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
@@ -30,3 +31,5 @@ app.listen(5000, ()=>{
     debug("listening on port 5000");
 
 }); 
+
+
