@@ -7,23 +7,43 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/css/inStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/borderStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/navStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/txtStyling.css">
 </head>
 <body class="container gradient-border">
 
     <div class="topL"></div>
     <div class="topM"></div>
-    <div class="topR"></div>
+    <div class="topR">
+        <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+          <label for="menu-icon"></label>
+          <nav class="nav"> 		
+              <ul class="pt-5">
+                  <li><a href="index.ejs">Home</a></li>
+                  <li><a href="movies.ejs">Movies</a></li>
+                  <li><a href="#">News</a></li>
+                  <li><a href="#">Contact</a></li>
+              </ul>
+          </nav>
+    
+    </div>
     <div class="midL"></div>
     <div class="mid">
         <h1>Hello world!</h1>
-        <h2><%=topMoviesRouter.title%></h2>
-        <p><%=topMoviesRouter.image%></p>
+        <div class="whiteTxt">
+            <h2><%=topMovies[0].title%></h2>
+        <img src="<%=topMovies[0].image%>"></img>
+        <p><%=topMovies[0].year%></p>
+        <div><%include%></div>
+        </div>
+        
     </div>
     <div class="midR"></div>
     <div class="footL"></div>
     <div class="footM"></div>
     <div class="footR"></div>
    
+    
 
 <script src="js/API.js"></script>
 </body>
