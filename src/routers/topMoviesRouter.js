@@ -4,11 +4,10 @@ const topMoviesRouter = express.Router();
 const topMovies = require('../data/topMovies.json');
 
 topMoviesRouter.route("/").get((req, res) => {
-    res.render("topMovies", {
+    res.render("movies", {
         topMovies,
     });
 });
-
 
 
 
