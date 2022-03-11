@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/css/borderStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/navStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/txtStyling.css">
+    <link rel="stylesheet" type="text/css" href="/css/movieStyle.css">
 </head>
 <body class="container gradient-border">
 
@@ -30,17 +31,23 @@
     <div class="midL"></div>
     <div class="mid">
         <h1>Hello world!</h1>
-        <div class="whiteTxt">
-            <h2><%=topMovies[0].title%></h2>
-        <img src="<%=topMovies[0].image%>"></img>
-        <p><%=topMovies[0].year%></p>
-        <div><%include%></div>
+        <div class="whiteTxt movieWrapper">
+            <div class="movieWrapperChild">
+            <p>
+                <% topMovies.map((movie) => { %>
+                    <%- include('../partials/movie', {movie:movie}); -%>
+      
+                <%});%> 
+              </p>
+            </div>
         </div>
         
     </div>
     <div class="midR"></div>
     <div class="footL"></div>
-    <div class="footM"></div>
+    <div class="footM">
+        <h1>Hello</h1>
+    </div>
     <div class="footR"></div>
    
     

@@ -1,7 +1,5 @@
+var movies = require('../data/topMovies.json');
 
-
-<%
-const topMovies = require('../data/topMovies.json');
 const chooseRandom = (topMovies, num = 1) => {
     const res = [];
     for(let i = 0; i < num; ){
@@ -15,4 +13,3 @@ const chooseRandom = (topMovies, num = 1) => {
     return res;
  };
  console.log(chooseRandom(topMovies, 4));
-%>
