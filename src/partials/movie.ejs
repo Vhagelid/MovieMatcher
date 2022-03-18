@@ -1,6 +1,10 @@
+<link rel="stylesheet" type="text/css" href="/css/movieStyle.css">
+
+<div class="movieWrapper">
 <div class="pic"><img src="<%=movie.image%>" class="img-fluid" alt=""></div>
-      <div class="member-info">
+      <div class="member-info movieWrapperChild">
         <h4><%=movie.fullTitle%></h4>
         <span><a href="https://www.imdb.com/title/<%=movie.id%>"> <%=movie.title%> </a></span>
         <p><%=movie.crew%></p>
+</div>
 </div>
