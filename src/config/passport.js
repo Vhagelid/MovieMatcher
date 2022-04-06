@@ -1,5 +1,5 @@
-const passport = require("passport");
-require("./strategies/local.strategy")();
+const passport = require('passport');
+require('./strategies/local.strategy')();
 
 module.exports = function passportConfig(app){
     app.use(passport.initialize());
@@ -14,4 +14,4 @@ module.exports = function passportConfig(app){
     });
 
     
-}
+};

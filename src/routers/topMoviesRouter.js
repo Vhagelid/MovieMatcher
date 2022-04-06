@@ -12,6 +12,13 @@ topMoviesRouter.route("/").get((req, res) => {
     res.render("movies", {topMovies,});
 });
 
+topMoviesRouter.use((req, res, next)=> {
+    if (req.user){
+      next();  
+    } else {
+      res.redirect("/auth/signIn")
+    }
+  })
 
 
 

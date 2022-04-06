@@ -12,7 +12,8 @@ const app = express();
 const sessionsRouter = require("./src/routers/sessionsRouter");
 const adminRouter = require("./src/routers/adminRouter");
 const topMoviesRouter = require("./src/routers/topMoviesRouter");
-const authRouter= require("./src/routers/authRouter")(passport);
+// const authRouter= require("./src/routers/authRouter")(passport);
+const authRouter= require("./src/routers/authRouter");
 
 
 
