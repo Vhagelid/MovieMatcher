@@ -21,7 +21,7 @@ authRouter.route('/signUp').post((req, res)=>{
             const results = await db.collection('users').insertOne(user);
             debug(`Results: ${results}`);
             req.login(results, ()=>{
-                res.redirect('/auth/profile');
+                res.redirect('/auth/signin');
             });
 
         } catch (error) {
@@ -43,7 +43,7 @@ authRouter
 .post(
     passport.authenticate('local', {
     successRedirect: '/movies',
-    failureMessage: '/',
+    failureMessage: '/movies',
 })
 );
 

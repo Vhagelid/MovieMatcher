@@ -18,7 +18,7 @@ const authRouter= require("./src/routers/authRouter");
 
 
 app.use(morgan("tiny"));
-app.use(express.static(path.join(__dirname, "/public/")));
+app.use(express.static(path.join(__dirname, "/src/")));
 app.use(express.static(path.join(__dirname, "/Static/")));
 
 app.use(express.json());
@@ -49,6 +49,7 @@ app.use(express.json());
 app.get("/",(req, res)=>{
       res.render("index");
 });
+
 
 app.listen(5000, ()=>{
     debug("listening on port 5000");
