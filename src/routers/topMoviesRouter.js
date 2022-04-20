@@ -7,19 +7,19 @@ const {MongoClient, ObjectID} = require('mongodb')
 
 
 topMoviesRouter.route("/").get((req, res) => {
-    let topMovies=moviesService.GetTop10Movies();
+    let topMovies=moviesService.chooseRandom();
 
 
     res.render("movies", {topMovies,});
 });
 
-// topMoviesRouter.use((req, res, next)=> {
-//     if (req.user){
-//       next();
-//     } else {
-//       res.redirect("/auth/signIn")
-//     }
-//   })
+topMoviesRouter.use((req, res, next)=> {
+    if (req.user){
+      next();
+    } else {
+      res.redirect("/auth/signIn")
+    }
+  })
 
 
 

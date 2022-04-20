@@ -8,11 +8,14 @@
     <link rel="stylesheet" type="text/css" href="/css/inStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/borderStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/navStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/txtStyling.css">
+
 </head>
 <body class="container gradient-border">
 
     <div class="topL"></div>
     <div class="topM">
+        <img src="/images/Logo3.png">
         
     </div>
     <div class="topR">
@@ -31,20 +34,28 @@
     </div>
     <div class="midL"></div>
     <div class="mid">
-       <form name="signup" action="/auth/signUp" method="post">
-           username: <input name="username" id="username"><br>
-           password: <input type="password" name="password" id="password"><br>
-           <input type="submit" value="SIGN UP"><br>
-       </form>
-       
+        <p class="whiteTxt midAlign pmain">Here at MovieMatcher we want to give you the best viewing expirience possible.<br> With our innovative picking system you are guarenteed to find a movie you like.<br>
+        There is no need to go premium! Our services will be almost the same although with an added bonus of no ads and a couple of special features for our premium users.<br>
+        Feel free to browse movies in our extended lists, add your favourites to lists and share your opinion with others users.
+        If you need extra tech check out https://www.finn.no/bap/forsale/ad.html?finnkode=253654552.
+        </p>
+
+        <button class="button-34" onclick="show(signInEl)" role="button">Sign in</button>
+
     </div>
     <div class="midR"></div>
     <div class="footL"></div>
-    <div class="footM"></div>
+    <div class="footM">
+        <form class="signInForm" id="signInF" name="signup" action="/auth/signUp" method="post">
+            username: <input name="username" id="username"><br>
+            password: <input type="password" name="password" id="password"><br>
+            <input type="submit" value="SIGN UP"><br>
+        </form>
+    </div>
     <div class="footR"></div>
    
 <script src="js/API.js"></script>
-<script src="js/navbar.js"></script>
+<script src="js/basicScripts.js"></script>
 <script src="app.js"></script>
 <!-- <script src="../routers/topMoviesRouter.js"></script> -->
 </body>

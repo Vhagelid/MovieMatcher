@@ -1,3 +1,11 @@
 .whiteTxt {
     color: antiquewhite;
 }
+
+.midAlign {
+    text-align: center;
+}
+
+.pmain {
+    font-size: 20px;
+}
