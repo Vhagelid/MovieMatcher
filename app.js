@@ -14,6 +14,7 @@ const adminRouter = require("./src/routers/adminRouter");
 const topMoviesRouter = require("./src/routers/topMoviesRouter");
 // const authRouter= require("./src/routers/authRouter")(passport);
 const authRouter= require("./src/routers/authRouter");
+const supportRouter = require("./src/routers/supportRouter");
 
 
 
@@ -43,6 +44,7 @@ app.use("/sessions", sessionsRouter);
 app.use("/admin", adminRouter);
 app.use("/movies", topMoviesRouter);
 app.use("/auth", authRouter);
+app.use("/support", supportRouter);
 
 app.use(express.json());
 

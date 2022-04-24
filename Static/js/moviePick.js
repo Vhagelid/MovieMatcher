@@ -1,20 +1,17 @@
-//const movieInfo = require("../../src/routers/topMoviesRouter")
+// const movieInfo = require("../../src/routers/topMoviesRouter");
+//const page = require("../../src/views/movies.ejs");
 
 
 
 
-
-function approvedMovie() {
+function approvedMovie(button) {
     var choices = [];
-    var yes = document.getElementById("yes");
-    var no = document.getElementById("no");
-    yes.addEventListener("click", () => {
-        console.log(movieInfo.topMovies)
-        console.log("working!")
-        choices.push(randomMovie.topMovies);
-        console.log(choices);
-    });
+    var yesnoinp = document.getElementById("yesno");
+    yesnoinp.value=button.id;
+    submit();
+
+
 
 };
 
-module.exports = {approvedMovie}
+// module.exports = {approvedMovie}

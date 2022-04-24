@@ -6,25 +6,33 @@ const moviesService=require("../services/moviesServices")
 const {MongoClient, ObjectID} = require('mongodb')
 const moviePick=require("../../Static/js/moviePick")
 
-topMoviesRouter.route("/").get((req, res) => {
-    let topMovies=moviesService.GetRandomMovie();
-    moviePick.approvedMovie(topMovies);
+topMoviesRouter.use((req, res, next)=> {
+  if (req.user){
+    next();
+  } else {
+    res.redirect("/auth/signIn")
+  }
+})
 
-    res.render("movies", {topMovies,});
+topMoviesRouter.route("/").get((req, res) => {
+    // moviePick.approvedMovie(topMovies);
+    let movieId=req.query.movieId;
+    let yesno=req.query.yesno;
+    
+    console.log({movieId,yesno});
+
+    let movie=moviesService.GetRandomMovie();
+
+
+    console.log(req.user.username);
+    res.render("movies", {movie,});
 });
 
 
 
-topMoviesRouter.use((req, res, next)=> {
-    if (req.user){
-      next();
-    } else {
-      res.redirect("/auth/signIn")
-    }
-  })
 
 
 
-  var topMovies=moviesService.GetRandomMovie();
 
-module.exports = topMoviesRouter, topMovies;
+
+module.exports = topMoviesRouter;

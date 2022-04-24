@@ -1,5 +1,6 @@
 
-  let topMovies=require("../data/topMovies.json");
+let topMovies=require("../data/topMovies.json");
+let sessionsSelection=require("../data/sessionMovies.json");
 
 function GetTopMovies() {
     return topMovies;
@@ -10,21 +11,15 @@ function GetTop10Movies() {
 }
 
 function GetRandomMovie() {
-    return chooseRandom(topMovies);
+    return chooseRandom(sessionsSelection);
 }
 
 
-var chooseRandom = (topMovies, num = 1) => {
-    const res = [];
-    for(let i = 0; i < num; ){
-       const random = Math.floor(Math.random() * topMovies.length);
-       if(res.indexOf(topMovies[random]) !== -1){
-          continue;
-       };
-       res.push(topMovies[random]);
-       i++;
-    };
-    return res;
+var chooseRandom = (movies, num = 0) => {
+    let curM=movies[num];
+    console.log(curM);
+    return curM;
+
  };
 
 module.exports={GetTopMovies, GetTop10Movies, GetRandomMovie};
