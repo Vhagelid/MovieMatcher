@@ -1,0 +1,37 @@
+version: "3.2"
+
+services:
+  db:
+    container_name: mmdb
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - c:/dbdata:/data/db
+    environment:
+      # - MONGO_INITDB_ROOT_USERNAME=admin
+      # - MONGO_INITDB_ROOT_PASSWORD=klype
+      - MONGO_INITDB_ROOT_USERNAME=AzureDiamondGrønn
+      - MONGO_INITDB_ROOT_PASSWORD=eeb055df-54ce-4465-8503-219654da777d
+
+
+  moviematcher:
+    container_name: moviematcher
+    depends_on:
+      - "db"
+    build:
+      context: ./
+      dockerfile: app.dockerfile
+    image: hdprod/moviematcher
+    ports:
+      - "5000:5000"
+    #volumes:
+    #  - d:/dockertemp/comics/images:/app/comics
+    environment:
+        - MONGODB_CONNSTRING=mongodb://AzureDiamondGrønn:eeb055df-54ce-4465-8503-219654da777d@db:27017
+        # - MONGODB_CONNSTRING=mongodb://admin:klype@db:27018
+    #    - MONGODB_CONNSTRING="mongodb://@db"
+
+#volumes:
+#  mongodata:
+#  seqdata:

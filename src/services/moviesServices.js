@@ -10,8 +10,8 @@ function GetTop10Movies() {
     return topMovies.slice(0, 2);
 }
 
-function GetRandomMovie() {
-    return chooseRandom(sessionsSelection);
+function GetRandomMovie(sessionId, index) {
+    return chooseRandom(sessionsSelection, index++);
 }
 
 

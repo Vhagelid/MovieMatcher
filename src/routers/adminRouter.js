@@ -8,13 +8,14 @@ const {MongoClient} = require('mongodb')
 const adminRouter = express.Router();
 
 adminRouter.route('/').get((req, res)=>{
-    const url = 'mongodb://localhost:27017';
     const dbName = 'MovieMatcherDB';
     
     (async function mongo(){
         let client;
         try {
-          client = await MongoClient.connect(url);
+          console.log(`dbConnectionStr=${dbConnString}`);
+
+          client = await MongoClient.connect(dbConnString);
           debug('connecting to the DB...')
 
           const db = client.db(dbName);

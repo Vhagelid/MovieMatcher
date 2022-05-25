@@ -5,16 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/css/inStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/centeredGrid.css">
     <link rel="stylesheet" type="text/css" href="/css/borderStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/navStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/txtStyling.css">
     <link rel="stylesheet" type="text/css" href="/css/movieStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/supportStyle.css">
+
 </head>
 <body class="container gradient-border">
 
     <div class="topL"></div>
-    <div class="topM"></div>
+    <div class="topM">
+        <img src="/images/Logo3.png">
+    </div>
     <div class="topR">
         <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
           <label for="menu-icon"></label>
@@ -23,45 +27,22 @@
                   <li><a href="/">Home</a></li>
                   <li><a href="movies">Movies</a></li>
                   <li><a href="#">News</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="/support">support</a></li>
               </ul>
           </nav>
-    
     </div>
     <div class="midL"></div>
     <div class="mid">
-        <div class="whiteTxt">
-            <div>
-            <p>
-                <%- include('../partials/movie', {movie}); -%>
-              </p>
-            </div>
-        </div>
-
-        
+        <h1 class="whiteTxt big">Your feedback is appreciated!</h1>
     </div>
     <div class="midR"></div>
     <div class="footL"></div>
-    <div class="footM">
-        
-        <form action="#" type="query" method="post">
-            <input type="hidden" name="movieId" value="<%=movie.id%>">
-            <input type="hidden" name="sessionId" value="<%=movie.sessionId%>">
-            <input type="hidden" name="index" value="<%=movie.index%>">
-
-            <input type="hidden" id="yesno" name="yesno" value="">
-
-        <input type="image" onclick="approvedMovie(this);" name="yes" id="yes" src="/images/greenCheck2.png" width="150">
-        
-        <input type="image"  onclick="approvedMovie(this);" name="no" id="no" src="/images/redX.png" width="150">
-    </form>
-
-    </div>
+    <div class="footM"></div>
     <div class="footR"></div>
    
+    
 
 
-<script src="js/moviePick.js"></script>
 
 </body>
 </html>

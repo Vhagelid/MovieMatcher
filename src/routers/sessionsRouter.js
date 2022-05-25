@@ -8,13 +8,12 @@ const sessionsRouter = express.Router();
 
 
 sessionsRouter.route("/").get((req, res) => {
-    const url = 'mongodb://localhost:27017';
     const dbName = 'MovieMatcherDB';
     
     (async function mongo(){
         let client;
         try {
-          client = await MongoClient.connect(url);
+          client = await MongoClient.connect(dbConnString);
           debug('connecting to the DB...')
 
           const db = client.db(dbName);
@@ -37,13 +36,13 @@ sessionsRouter.route("/").get((req, res) => {
 
 sessionsRouter.route("/:id").get((req, res) => {
     const id = req.params.id;
-    const url = 'mongodb://localhost:27017';
+    // const dbConnString = 'mongodb://localhost:27017';
     const dbName = 'MovieMatcherDB';
     
     (async function mongo(){
         let client;
         try {
-          client = await MongoClient.connect(url);
+          client = await MongoClient.connect(dbConnString);
           debug('connecting to the DB...')
 
           const db = client.db(dbName);

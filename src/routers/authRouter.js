@@ -3,18 +3,19 @@ const debug = require('debug')('app:sessionRouter');
 const {MongoClient, ObjectID} = require('mongodb');
 const passport = require('passport');
 
+const dbConnString=process.env.MONGODB_CONNSTRING;
 
 const authRouter = express.Router();
 
 authRouter.route('/signUp').post((req, res)=>{
     const {username, password} = req.body;
-    const url = 'mongodb://localhost:27017';
+    console.log(`dbConnectionStr=${dbConnString}`);
     const dbName = 'MovieMatcherDB';
 
     (async function addUser (){
         let client;
         try {
-            client = await MongoClient.connect(url);
+            client = await MongoClient.connect(dbConnString);
 
             const db = client.db(dbName);
             const user = {username, password};

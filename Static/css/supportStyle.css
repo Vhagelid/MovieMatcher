@@ -1,3 +1,7 @@
-.supportForm {
-    
+.input-feedback {
+    height:300px;
+    width:300px;
+    word-break: break-word;
+    text-align: start;
 }
+

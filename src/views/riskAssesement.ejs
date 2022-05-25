@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/inStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/borderStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/navStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/txtStyling.css">
+    <link rel="stylesheet" type="text/css" href="/css/aboutStyle.css">
+
+</head>
+<body class="container gradient-border">
+
+    <div class="topL"></div>
+    <div class="topM">
+        <img src="/images/Logo3.png">
+        
+    </div>
+    <div class="topR">
+    
+          <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+          <label for="menu-icon"></label>
+          <nav class="nav"> 		
+              <ul class="pt-5">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="movies">Movies</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="support">Support</a></li>
+              </ul>
+          </nav>
+    
+    </div>
+    <div class="midL"></div>
+    <div class="mid">
+        <table class="whiteTxt small">
+            <tr>
+                <th>#</th>
+                <th>Risikoer</th>
+                <th>Konsekvens</th>
+                <th>Sannsynlighet</th>
+                <th>RisikoNivå</th>
+                <th>Forebyggende tiltak</th>
+                <th>Akutt tiltak</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Windows Oppdatering</td>
+                <td>Svært Lav</td>
+                <td>Svært Lav</td>
+                <td class="SværtLav">Svært Lav</td>
+                <td>Oppdater og restart med jevne mellomrom når aktivitet er lav</td>
+                <td>Bare å oppdatere</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Strømbrudd</td>
+                <td>Svært Lav</td>
+                <td>Svært Lav</td>
+                <td class="SværtLav">Svært Lav</td>
+                <td>Ha ekstra batterier eller powerbanks</td>
+                <td>Skru alle systemer på lav strømbruk</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Server feil/nettside kræsj</td>
+                <td>Svært Lav</td>
+                <td>Svært Lav</td>
+                <td class="SværtLav">Svært Lav</td>
+                <td>Automatisk debugging og rebooting av systemet når det feiler</td>
+                <td>Manuelt finne feilen og rebootet systemet</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Går tom for minne</td>
+                <td>Lav</td>
+                <td>Svært Lav</td>
+                <td class="Lav">Lav</td>
+                <td>Sette spærre på hvor mye minne systemet kan bruke</td>
+                <td>Manuelt rebootet og throttle systemet</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Går tom for minne</td>
+                <td>Lav</td>
+                <td>Svært Lav</td>
+                <td class="Lav">Lav</td>
+                <td>Sette spærre på hvor mye minne systemet kan bruke</td>
+                <td>Manuelt rebootet og throttle systemet</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Høy traffikk på nettsiden</td>
+                <td>Lav</td>
+                <td>Kan skje</td>
+                <td class="Lav">Lav</td>
+                <td>Legge til en kø sånn at bare et satt antall maskiner kan koble til siden samtidig</td>
+                <td>Manuelt throttle antall brukere som kan ha tilgang eller skru av server for en periode</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Personopplysninger kan komme på avveie pga. Bekjente kan spre personopplysninger</td>
+                <td>Stor</td>
+                <td>Sjelden</td>
+                <td class="Lav">Lav</td>
+                <td>Ikke vise fram hvor personopplysninger blir lagret</td>
+                <td>Skru av hele systemet og sett opp regler for hvor og når data behandles</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Data kommer på avveier pga. Manglende teknisk overvåkning av dataflyt i nettverk og datasenter</td>
+                <td>Middels</td>
+                <td>Sjelden</td>
+                <td class="Middels">Middels</td>
+                <td>Sjekke ofte hvordan data flyter gjennom nettverket slik at man kan plukke opp på alle uregelmessigheter</td>
+                <td>Skru av systemet og manuelt lete etter feilen</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Søl av vesker eller mat på utstyr</td>
+                <td>Svært Høy</td>
+                <td>Kan skje</td>
+                <td class="Høy">Høy</td>
+                <td>Aldri ha drikke eller mat ved utstyret</td>
+                <td>Skru av alt av elektrisk utstyr. Tørket alt ut og vaske det.</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>DDOS angrep på nettsiden</td>
+                <td>Lav</td>
+                <td>Svært Lav</td>
+                <td class="Høy">Høy</td>
+                <td>Sette opp throttling</td>
+                <td>Noe viktig</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Glemme å stenge datautstyr for andre individer</td>
+                <td>Svært Høy</td>
+                <td>Middels</td>
+                <td class="SværtHøy">Svært Høy</td>
+                <td>Alltid stenge datautstyr når man ikke er i nærheten</td>
+                <td>Gå til utstyret så fort som mulig å analysere skadene</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Stjålet utstyr</td>
+                <td>Svært Høy</td>
+                <td>Lav</td>
+                <td class="Høy">Høy</td>
+                <td>Alltid ha et øyet på utstyret og alltid ta med det som kan fraktes til et tryggere sted. Ta backup av alt.</td>
+                <td>Gjennopprette programmet gjennom github og starte med nytt utstyr</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Standard passord for mongoDB</td>
+                <td>Svært Høy</td>
+                <td>Lav</td>
+                <td class="Høy">Høy</td>
+                <td>Endre standard passord</td>
+                <td>Skru av hele nettverket og endre standard passord</td>
+            </tr>
+        </table>
+    </div>
+    <div class="midR">
+     
+    </div>
+    <div class="footL"></div>
+    <div class="footM"></div>
+    <div class="footR"></div>
+   
+
+</body>
+</html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="/css/inStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/centeredGrid.css">
     <link rel="stylesheet" type="text/css" href="/css/borderStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/navStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/txtStyling.css">
@@ -33,11 +33,11 @@
     </div>
     <div class="midL"></div>
     <div class="mid">
-        <form class="supportForm">
-        <lable class="whiteTxt medium">Name:</lable><input type="text" name="name" id="">
-        <label class="whiteTxt medium">Email:</label><input type="email" name="mail" id="">
-        <textarea  cols="80" rows="20"></textarea>
-        <label class="whiteTxt medium">Send</label><input type="submit" value="">
+        <form method="post" action="/support/post-feedback" class="supportForm">
+        <lable class="whiteTxt medium">Name:</lable><input type="text" name="name" id=""><br>
+        <label class="whiteTxt medium">Email:</label><input type="email" name="mail" id=""><br>
+        <textarea cols="80" rows="20" name="feedback"></textarea><br>        
+        <input type="submit" value="">
         </form>
     </div>
     <div class="midR"></div>
