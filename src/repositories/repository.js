@@ -1,4 +1,8 @@
+// const MongoClient = require("mongodb")
+// const {MongoClient} = require('mongodb');
+
 const MongoClient = require('./db');
+// const url = process.env.MONGODB_CONNSTRING
 const dbName = 'MovieMatcherDB';
 const usersCollection = 'users';
 

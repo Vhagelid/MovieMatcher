@@ -16,8 +16,15 @@ async function initDbClient() {
     }
 };
 
+async function getDb() {
+    client= await initDbClient();
+    return await client.db(dbName);
+};
+
+
 function close() {
+
     if (client != null) client.close();
 }
 
-module.exports = { initDbClient, close };
+module.exports = { initDbClient, close, getDb };

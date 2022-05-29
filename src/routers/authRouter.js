@@ -3,37 +3,39 @@ const debug = require('debug')('app:sessionRouter');
 const {MongoClient, ObjectID} = require('mongodb');
 const passport = require('passport');
 
-const dbConnString=process.env.MONGODB_CONNSTRING;
-
+const usersRepository = require('../repositories/usersRepository');
 const authRouter = express.Router();
 
+
+authRouter.route('/signUp').get((req, res)=>{
+    res.render('signup');
+});
+
+
+
 authRouter.route('/signUp').post((req, res)=>{
-    const {username, password} = req.body;
-    console.log(`dbConnectionStr=${dbConnString}`);
-    const dbName = 'MovieMatcherDB';
+    
 
+    const {name, username, password} = req.body;
+    debug(`Results: ${name}`);
     (async function addUser (){
-        let client;
         try {
-            client = await MongoClient.connect(dbConnString);
-
-            const db = client.db(dbName);
-            const user = {username, password};
-            const results = await db.collection('users').insertOne(user);
+            let results=await usersRepository.createUserIfNotExists(username, password);
             debug(`Results: ${results}`);
-            req.login(results, ()=>{
-                res.redirect('/auth/signin');
-            });
-
+            res.redirect('/');
+            // req.login(results, ()=>{
+                
+            // });
         } catch (error) {
             debug(error)
         }
-        client.close();
     }());
-
-
   
 });
+
+
+
+
 
 authRouter
     .route('/signIn')
