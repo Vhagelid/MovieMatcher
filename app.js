@@ -16,8 +16,8 @@ debug(dbConnString);
 
 const PORT = process.env.PORT || 5000;
 const app = express();
-const sessionsRouter = require("./src/routers/sessionsRouter");
-const adminRouter = require("./src/routers/adminRouter");
+// const sessionsRouter = require("./src/routers/sessionsRouter");
+// const adminRouter = require("./src/routers/adminRouter");
 const topMoviesRouter = require("./src/routers/topMoviesRouter");
 // const authRouter= require("./src/routers/authRouter")(passport);
 const authRouter= require("./src/routers/authRouter");
@@ -50,8 +50,8 @@ app.set("view engine", "ejs");
 
 
 
-app.use("/sessions", sessionsRouter);
-app.use("/admin", adminRouter);
+// app.use("/sessions", sessionsRouter);
+// app.use("/admin", adminRouter);
 app.use("/movies", topMoviesRouter);
 app.use("/auth", authRouter);
 app.use("/support", supportRouter);

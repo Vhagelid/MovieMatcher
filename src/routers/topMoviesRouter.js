@@ -2,62 +2,72 @@ const express = require("express");
 const debug = require('debug')('app:topMoviesRouter');
 const topMoviesRouter = express.Router();
 //const topMovies = require('../data/topMovies.json');
-const moviesService=require("../services/moviesServices")
-const {MongoClient, ObjectID} = require('mongodb')
-const moviePick=require("../../Static/js/moviePick")
+const moviesService = require("../services/moviesServices")
+const { MongoClient, ObjectID } = require('mongodb')
+const moviePick = require("../../Static/js/moviePick")
 
 const dbName = 'MovieMatcherDB';
-const collection='approvedMovie';
+const collection = 'approvedMovie';
 
-topMoviesRouter.use((req, res, next)=> {
-  if (req.user){
+topMoviesRouter.use((req, res, next) => {
+  if (req.user) {
     next();
   } else {
-    res.redirect("/auth/signIn")
+    res.redirect("/")
   }
 })
 
 topMoviesRouter.route("/").get((req, res) => {
-    // moviePick.approvedMovie(topMovies);
-    let sessionId=req.query.sessionId;
-    console.log({sessionId});
-    let movie=moviesService.GetRandomMovie(sessionId,0);
-    console.log(req.user.username);
-    res.render("movies", {movie,});
+  // moviePick.approvedMovie(topMovies);
+  let sessionId = req.query.sessionId;
+  console.log({ sessionId });
+  let movie = moviesService.GetRandomMovie(sessionId, 0);
+  console.log(req.user.username);
+  res.render("movies", { movie, });
 });
 
-topMoviesRouter.route("/").post((req, res)=> {
+topMoviesRouter.route("/").post(async (req, res) => {
+
   console.log(req.body);
-  let reqBody=req.body;
+  let reqBody = req.body;
   // let movieId=req.body.movieId;
-  // let sessionId=req.body.sessionId;
   // let index=req.body.index;
   // let yesno=req.body.yesno;
+  // let sessionId=req.body.sessionId;
 
-  let des = {sessionId:reqBody.sessionId,movieId:reqBody.movieId, yesNo:reqBody.yesno, userId:req.user.username};
+  let sessionId = req.sessionID;
+  let des = { sessionId: sessionId, movieId: reqBody.movieId, movieTitle: reqBody.movieTitle, yesNo: reqBody.yesno, userId: req.user.username };
   console.log(des);
+  try {
+    let result = await moviesService.saveApprovedMovie(des);
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+  let movie = moviesService.GetRandomMovie(reqBody.sessionId, reqBody.index);
 
-
-
-  (async function saveApprovedMovie(){
-    let client;
-    try {
-      client = await MongoClient.connect(dbConnString);
-      let db = client.db(dbName);
-      let result = await db.collection(collection).insertOne(des)
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-    client.close();
-  }())
-  let movie=moviesService.GetRandomMovie(reqBody.sessionId, reqBody.index);
   /* on end
    if movie == null
    your done,
    redirect to stat page
    */
-  res.render("movies", {movie,});
+  let userId = req.user.username;
+  // res.render("movies", { movie, });
+  if (movie != null) {
+    res.render("movies", { movie, });
+  } else {
+
+    let decisions = null;
+    decisions = await moviesService.getMovieDecisions(userId, sessionId);
+    // (async function () { 
+    //   decisions = await moviesService.getMovieDecisions(userId, sessionId); 
+    //   console.log(decisions);
+    // }
+    // );
+    console.log(decisions);
+    res.render("done", { decisions });
+  }
+
 
 });
 
