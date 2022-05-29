@@ -54,7 +54,7 @@ topMoviesRouter.route("/").post(async (req, res) => {
   let userId = req.user.username;
   // res.render("movies", { movie, });
   if (movie != null) {
-    res.render("movies", { movie, });
+    res.render("movies", { movie });
   } else {
 
     let decisions = null;
