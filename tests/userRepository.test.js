@@ -26,6 +26,7 @@ it("get user, return user object", async () => {
 	let user = await users.getUser("bob");
 	console.log(user);
 	expect(user).not.toBe(null);
+
 	expect(user.username).toBe("bob");
 
 });
@@ -34,7 +35,7 @@ it("get user, return user object", async () => {
 // const dbServiceUsers = require('../src/services/dbServiceUsers');
 it("Create user, only if not exisist", async () => {
 	var numbOfBobs1 = await users.countUsers("bob");
-	let user = await users.createNonExistingUser("bob", "pass");
+	let user = await users.createUserIfNotExists("bob", "pass");
 	var numbOfBobs2 = await users.countUsers("bob");
 
 	expect(numbOfBobs2).toEqual(numbOfBobs1);

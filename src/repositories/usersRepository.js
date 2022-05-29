@@ -14,25 +14,15 @@ async function initDb() {
 
 }
 
-async function createNonExistingUser(username, password){
-    var db = await initDb();
-    try {
-        let user = await getUser(username);
-        if (user==null) {
-            let result = await createUser(username, password);
-            if (result.acknowledged){
-                user = await getUser(username);
-            }
+async function createUserIfNotExists(username, password) {
+    let user = await getUser(username);
+    if (user == null) {
+        let result = await createUser(username, password);
+        if (result.acknowledged) {
+            user = await getUser(username);
         }
-        return user;
-
-    } catch (error) {
-
     }
-    finally {
-        MongoClient.close();
-    }
-
+    return user;
 }
 
 
@@ -54,7 +44,7 @@ async function createUser(username, password) {
 async function getUser(usrName) {
     var db = await initDb();
     try {
-        let user = await db.collection(usersCollection).findOne({username:usrName});
+        let user = await db.collection(usersCollection).findOne({ username: usrName });
         // console.log(user);
         return user;
 
@@ -73,7 +63,7 @@ async function countUsers(usrName) {
 
         console.log("-------------");
 
-        let count = await db.collection(usersCollection).estimatedDocumentCount({username:usrName});
+        let count = await db.collection(usersCollection).estimatedDocumentCount({ username: usrName });
         console.log('Count:' + count);
         return count;
 
@@ -88,8 +78,6 @@ async function countUsers(usrName) {
 
 
 
-
-
-module.exports = { getUser, createUser, countUsers, createNonExistingUser };
+module.exports = { getUser, createUser, countUsers, createUserIfNotExists };
 
 
