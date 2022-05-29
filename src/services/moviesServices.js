@@ -1,10 +1,18 @@
 const MongoClient = require('../repositories/db');
+var cache = require('memory-cache');
 const collection='approvedMovie';
 
-let sessionsSelection=require("../data/sessionMovies.json");
+
 
 function GetRandomMovie(sessionId, index) {
-    return chooseRandom(sessionsSelection, index++);
+    let cacheKey="movieSelection";
+    let movieSelection= cache.get(cacheKey);
+    if (movieSelection==null){
+        movieSelection=require("../data/sessionMovies.json");
+        cache.put(cacheKey, movieSelection);
+    }
+
+    return chooseRandom(movieSelection, index++);
 }
 
 async function saveApprovedMovie(descision) {
@@ -38,6 +46,7 @@ async function getMovieDecisions(userId, sessionId){
 
 
 var chooseRandom = (movies, num = 0) => {
+
     console.log(`Movies length:${movies.length} curNum:${num}`);
 
     let curM=movies[num];
