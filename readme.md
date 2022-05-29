@@ -21,3 +21,17 @@ docker-compose -f dockercompose up
 
 ## stops and tear down network composed services
 docker-compose -f dockercompose down
+
+
+## Running unit(integration) tests
+
+- install jest
+  - npm install jest --global
+  - npm install jest –save-dev
+- Arange test in package.json
+  - replace current "test":..... with => "test": "jest"
+
+run test from terminal
+
+npm run test
+
